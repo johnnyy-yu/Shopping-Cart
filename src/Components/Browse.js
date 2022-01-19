@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import CartBar from "./CartBar";
 import fetchItems from "./fetchItems";
+import NavBar from "./NavBar";
 
 function Browse(props) {
   const { cart, setCart } = props;
@@ -12,6 +14,7 @@ function Browse(props) {
 
   return (
     <div className="browse-page">
+      <NavBar cart={cart} checkout="false" />
       <div className="browse">
         {items.map((item) => (
           <div key={item.id} className="item">
@@ -38,6 +41,7 @@ function Browse(props) {
           </div>
         ))}
       </div>
+      <CartBar cart={cart} />
     </div>
   );
 }

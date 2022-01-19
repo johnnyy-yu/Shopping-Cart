@@ -3,8 +3,48 @@ import { Link } from "react-router-dom";
 import icon from "../icons/reactIcon.svg";
 import shoppingCart from "../icons/outline_shopping_cart_white_24dp.png";
 
+import CartBar from "./CartBar";
+
 function NavBar(props) {
-  const {cart} = props;
+  const { cart, checkout } = props;
+
+  function checkoutSwitch() {
+    if (checkout === "true") {
+      return (
+        <Link to="/checkout" style={{ textDecoration: "none" }}>
+          <img
+            src={shoppingCart}
+            alt=""
+            className="shopping-cart-icon"
+            style={{ cursor: "pointer" }}
+          />
+        </Link>
+      );
+    }
+    return (
+      <div
+        onKeyDown={() => {}}
+        role="button"
+        onClick={() => {
+          const cartBar = document.querySelector(".cart-bar");
+
+          if (cartBar.style.display === "none") {
+            cartBar.style.display = "block";
+          } else {
+            cartBar.style.display = "none";
+          }
+        }}
+        tabIndex={0}
+      >
+        <img
+          src={shoppingCart}
+          alt=""
+          className="shopping-cart-icon"
+          style={{ cursor: "pointer" }}
+        />
+      </div>
+    );
+  }
 
   return (
     <header>
@@ -16,12 +56,10 @@ function NavBar(props) {
         <Link to="/browse" style={{ textDecoration: "none" }}>
           <li>Browse</li>
         </Link>
-        <Link to="/checkout" style={{ textDecoration: "none" }}>
-          <li className="cart">
-            <img src={shoppingCart} alt="" className="shopping-cart-icon" />
-            <div className="num-items">{cart.length}</div>
-          </li>
-        </Link>
+        <li className="cart">
+          {checkoutSwitch()}
+          <div className="num-items">{cart.length}</div>
+        </li>
       </ul>
     </header>
   );

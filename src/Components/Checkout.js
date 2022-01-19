@@ -1,9 +1,11 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 function Checkout(props) {
   const { cart } = props;
   return (
     <div>
+      <NavBar cart={cart} />
       Checkout
       {cart.map((item) => (
         <div className="checkout-item" key={item.id}>

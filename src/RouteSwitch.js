@@ -9,7 +9,7 @@ function RouteSwitch(props) {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home cart={cart} />} />
       <Route
         path="/browse"
         element={<Browse cart={cart} setCart={setCart} />}
