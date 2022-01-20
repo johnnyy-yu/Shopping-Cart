@@ -6,15 +6,21 @@ function Home(props) {
   const { cart } = props;
 
   return (
-    <div>
+    <div className="home">
       <NavBar cart={cart} checkout="true" />
-      <h1>React Components Store</h1>
-      <div className="welcome-description">
-        Get the latest SSDs and Monitors parts here!
+      <div className="welcome">
+        <h1>React Components Store</h1>
+        <div className="welcome-description">
+          Get the latest SSDs and Monitors parts here!
+        </div>
+        <span>
+          <Link to="/browse">
+            <button type="button" className="browse-button">
+              Browse
+            </button>
+          </Link>
+        </span>
       </div>
-      <Link to="/browse">
-        <button type="button">Browse</button>
-      </Link>
     </div>
   );
 }

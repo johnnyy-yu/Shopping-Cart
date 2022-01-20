@@ -1,20 +1,68 @@
 html {
+  background-image: url("./img/reactbackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
   width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root, .main {
+  height: 100vh;
+  width: 100%
 }
 
 header {
-  background-color: rgba(34, 34, 37, 0.986);
-  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.986);
   display: flex;
+  flex: 1;
   justify-content: space-between;
+  width: 100%;
+  height: 6%;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 1%;
+}
+
+.home {
+  width: 100%;
+  height: 100vh
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: large;
+  width: 40%; 
+  height: 100%
+}
+
+.browse-button {
+  color: white;
+  background-color: black;
+  font-size: large;
+  border: none;
+  margin: 3%;
+  padding: 2% 10%;
+  cursor: pointer;
+}
+
+.browse-button:hover {
+  background-color: rgb(48, 46, 46);
 }
 
 .nav-bar {
-  height: 20px;
-  width:25%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
+  gap: 50%;
+  margin-right: 2%;
   list-style: none;
 }
 
@@ -41,15 +89,93 @@ li {
   border-radius: 50%;
 }
 .shopping-cart-icon {
-  width: 20px
+  width: 20px;
+}
+
+.browse-page {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .browse {
-  width: 100vw;
+  height: 94%;
+  width: 100%;
+  overflow: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-} 
+  justify-items: center;
+  align-items: center;
+}
 
 .cart-bar {
   display: none;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(48, 46, 46, 0.705);
+  height: 94%;
+  width: 20%;
+  top: 6%;
+  right: 0;
+}
+
+.cart-bar-header {
+  font-size: 2em;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+  background-color: rgba(48, 46, 46, 0.507);
+}
+
+.item-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 28%;
+}
+.image-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%
+}
+
+.item-pic {
+  max-width: 70%;
+  max-height: 80%;
+  width: auto;
+  height: auto;
+}
+
+.name-price {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-name {
+  width: 80%;
+  margin: 2%;
+  text-align: center;
+}
+
+.item-price {
+  margin: 1%;
+}
+.add-button {
+  font-size: large;
+  background-color: black;
+  color: white;
+  border: none;
+  margin-top: 4px;
+  padding: 1% 5%;
 }

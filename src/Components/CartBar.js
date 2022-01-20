@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function CartBar(props) {
-  const { cart } = props;
+  const { cart, setCart } = props;
 
   return (
     <div className="cart-bar" style={{ display: "none" }}>
-      <div>Shopping Cart</div>
+      <div className="cart-bar-header">Shopping Cart</div>
       <div className="items">
         {cart.map((item) => (
           <div key={item.id}>
-            {item.name} {item.price}
+            {item.name} {item.price} {item.quantity}
+            <button type="button">Delete</button>
           </div>
         ))}
       </div>

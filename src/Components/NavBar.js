@@ -29,7 +29,7 @@ function NavBar(props) {
           const cartBar = document.querySelector(".cart-bar");
 
           if (cartBar.style.display === "none") {
-            cartBar.style.display = "block";
+            cartBar.style.display = "flex";
           } else {
             cartBar.style.display = "none";
           }
@@ -51,10 +51,10 @@ function NavBar(props) {
       <img src={icon} alt="" className="react-logo" />
       <ul className="nav-bar">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <li>Home</li>
+          <li className="home-nav">Home</li>
         </Link>
         <Link to="/browse" style={{ textDecoration: "none" }}>
-          <li>Browse</li>
+          <li className="browse-nav">Browse</li>
         </Link>
         <li className="cart">
           {checkoutSwitch()}
