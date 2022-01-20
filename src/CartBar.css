@@ -26,10 +26,6 @@
   border: 2px solid white;
 }
 
-.cart-name {
-  
-}
-
 .cart-quantity-price {
   display: flex;
   justify-content: space-between;
@@ -51,8 +47,31 @@
   cursor: pointer;
 }
 
+.subtotal, .tax-shipping {
+  align-self: flex-start;
+  padding: 2% 4%;
+  width: 92%;
+}
+
+.subtotal {
+  border-top: 1px solid white;
+}
+
 .cart-checkout {
+  display: flex;
+  justify-content: center;
   color: white;
   border: none;
-  background: none;
+  background: black;
+  width: 100%;
+  margin-top: 4%;
+  padding: 4% 0;
+  text-decoration: none;
+}
+
+#cart-checkout {
+  font-size: medium;
+  color: white;
+  border: none;
+  background: black;
 }

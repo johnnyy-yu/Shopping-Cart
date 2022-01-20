@@ -4,7 +4,7 @@ import uniqid from "uniqid";
 import "../CartBar.css";
 
 function CartBar(props) {
-  const { cart, setCart } = props;
+  const { cart, setCart, subTotal } = props;
 
   function decrement(item) {
     let currentCart = [...cart];
@@ -65,8 +65,12 @@ function CartBar(props) {
           </div>
         ))}
       </div>
-      <Link to="/checkout">
-        <button type="button" className="cart-checkout">Checkout</button>
+      <div className="subtotal">Subtotal: {`$${subTotal}`}</div>
+      <div className="tax-shipping">Tax & Shipping: --</div>
+      <Link to="/checkout" className="cart-checkout">
+        <button type="button" id="cart-checkout">
+          Checkout
+        </button>
       </Link>
     </div>
   );

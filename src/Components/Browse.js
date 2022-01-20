@@ -4,7 +4,7 @@ import fetchItems from "./fetchItems";
 import NavBar from "./NavBar";
 
 function Browse(props) {
-  const { cart, setCart } = props;
+  const { cart, setCart, subTotal } = props;
 
   const [items, setItems] = useState([]);
 
@@ -71,7 +71,7 @@ function Browse(props) {
           </div>
         ))}
       </div>
-      <CartBar cart={cart} setCart={setCart} />
+      <CartBar cart={cart} setCart={setCart} subTotal={subTotal} />
     </div>
   );
 }
