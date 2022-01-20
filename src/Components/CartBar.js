@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import uniqid from "uniqid";
+import "../CartBar.css";
 
 function CartBar(props) {
   const { cart, setCart } = props;
@@ -33,24 +34,39 @@ function CartBar(props) {
   return (
     <div className="cart-bar" style={{ display: "none" }}>
       <div className="cart-bar-header">Shopping Cart</div>
-      <div className="items">
+      <div className="cart-items">
         {cart.map((item) => (
-          <div key={uniqid()}>
-            {item.name} {item.price}
-            <div className="cart-bar-quantity">
-              <button type="button" onClick={() => decrement(item)}>
-                -
-              </button>
-              <div>{item.quantity}</div>
-              <button type="button" onClick={() => increment(item)}>
-                +
-              </button>
+          <div className="cart-item" key={uniqid()}>
+            <div className="cart-img-name">
+              <img className="cart-img" src={item.image} alt={item.id} />
+              <div className="cart-name">{item.name}</div>
+            </div>
+            <div className="cart-quantity-price">
+              <div className="cart-quantity">
+                <div className="quantity">Quantity:</div>
+                <button
+                  type="button"
+                  className="decrement"
+                  onClick={() => decrement(item)}
+                >
+                  -
+                </button>
+                <div>{item.quantity}</div>
+                <button
+                  type="button"
+                  className="increment"
+                  onClick={() => increment(item)}
+                >
+                  +
+                </button>
+              </div>
+              <div className="cart-price">{`$${item.price}`}</div>
             </div>
           </div>
         ))}
       </div>
       <Link to="/checkout">
-        <button type="button">Checkout</button>
+        <button type="button" className="cart-checkout">Checkout</button>
       </Link>
     </div>
   );

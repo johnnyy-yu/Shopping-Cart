@@ -58,7 +58,7 @@ function NavBar(props) {
         </Link>
         <li className="cart">
           {checkoutSwitch()}
-          <div className="num-items">{cart.length}</div>
+          {cart.length > 0 && <div className="num-items">{cart.length}</div>}
         </li>
       </ul>
     </header>
