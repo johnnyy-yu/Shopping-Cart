@@ -12,6 +12,32 @@ function Browse(props) {
     setItems(await fetchItems());
   }, []);
 
+  function addToCartBar(item) {
+    const currentCart = [...cart];
+    let repeat = false;
+    const thisItem = {
+      id: item.id,
+      image: item.image,
+      name: item.title,
+      price: item.price,
+      quantity: 1,
+    };
+
+    currentCart.forEach((aItem) => {
+      if (aItem.id === item.id) {
+        repeat = true;
+        aItem.quantity += 1;
+      }
+    });
+
+    if (repeat) {
+      setCart(currentCart);
+    } else {
+      currentCart.push(thisItem);
+      setCart(currentCart);
+    }
+  }
+
   return (
     <div className="browse-page">
       <NavBar cart={cart} checkout="false" />
@@ -37,18 +63,7 @@ function Browse(props) {
               <button
                 type="submit"
                 className="add-button"
-                onClick={() => {
-                  const currentCart = [...cart];
-                  const thisItem = {
-                    id: item.id,
-                    image: item.image,
-                    name: item.title,
-                    price: item.price,
-                    quantity: 1,
-                  };
-                  currentCart.push(thisItem);
-                  setCart(currentCart);
-                }}
+                onClick={() => addToCartBar(item)}
               >
                 Add to Cart
               </button>
