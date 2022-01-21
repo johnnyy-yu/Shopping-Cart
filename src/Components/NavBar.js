@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import icon from "../icons/reactIcon.svg";
 import shoppingCart from "../icons/outline_shopping_cart_white_24dp.png";
-
-import CartBar from "./CartBar";
 
 function NavBar(props) {
   const { cart, checkout } = props;

@@ -2,10 +2,10 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Browse from "./Components/Browse";
-import Checkout from "./Components/Checkout";
+import Cart from "./Components/Cart";
 
 function RouteSwitch(props) {
-  const { cart, setCart, subTotal, setSubTotal } = props;
+  const { cart, setCart, subTotal } = props;
 
   return (
     <Routes>
@@ -15,10 +15,8 @@ function RouteSwitch(props) {
         element={<Browse cart={cart} setCart={setCart} subTotal={subTotal} />}
       />
       <Route
-        path="/checkout"
-        element={
-          <Checkout cart={cart} subTotal={subTotal} setSubTotal={setSubTotal} />
-        }
+        path="/cart"
+        element={<Cart cart={cart} setCart={setCart} subTotal={subTotal} />}
       />
     </Routes>
   );

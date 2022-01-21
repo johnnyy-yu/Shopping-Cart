@@ -1,35 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import uniqid from "uniqid";
-import "../CartBar.css";
+import "../css/CartBar.css";
+import { increment, decrement } from "./quantity";
 
 function CartBar(props) {
   const { cart, setCart, subTotal } = props;
-
-  function decrement(item) {
-    let currentCart = [...cart];
-
-    currentCart.forEach((aItem) => {
-      if (aItem.id === item.id) aItem.quantity -= 1;
-
-      if (aItem.quantity === 0)
-        currentCart = currentCart.filter(
-          (cartItem) => cartItem.id !== aItem.id
-        );
-    });
-
-    setCart(currentCart);
-  }
-
-  function increment(item) {
-    const currentCart = [...cart];
-
-    currentCart.forEach((aItem) => {
-      if (aItem.id === item.id) aItem.quantity += 1;
-    });
-
-    setCart(currentCart);
-  }
 
   return (
     <div className="cart-bar" style={{ display: "none" }}>
@@ -47,7 +23,7 @@ function CartBar(props) {
                 <button
                   type="button"
                   className="decrement"
-                  onClick={() => decrement(item)}
+                  onClick={() => decrement(item, cart, setCart)}
                 >
                   -
                 </button>
@@ -55,7 +31,7 @@ function CartBar(props) {
                 <button
                   type="button"
                   className="increment"
-                  onClick={() => increment(item)}
+                  onClick={() => increment(item, cart, setCart)}
                 >
                   +
                 </button>
@@ -67,9 +43,9 @@ function CartBar(props) {
       </div>
       <div className="subtotal">Subtotal: {`$${subTotal}`}</div>
       <div className="tax-shipping">Tax & Shipping: --</div>
-      <Link to="/checkout" className="cart-checkout">
+      <Link to="/cart" className="cart-checkout">
         <button type="button" id="cart-checkout">
-          Checkout
+          Go to Cart
         </button>
       </Link>
     </div>
