@@ -9,7 +9,7 @@ function NavBar(props) {
   function checkoutSwitch() {
     if (checkout === "true") {
       return (
-        <Link to="/checkout" style={{ textDecoration: "none" }}>
+        <Link to="/cart" style={{ textDecoration: "none" }}>
           <img
             src={shoppingCart}
             alt=""
@@ -25,12 +25,7 @@ function NavBar(props) {
         role="button"
         onClick={() => {
           const cartBar = document.querySelector(".cart-bar");
-
-          if (cartBar.style.display === "none") {
-            cartBar.style.display = "flex";
-          } else {
-            cartBar.style.display = "none";
-          }
+          cartBar.classList.toggle("is-open");
         }}
         tabIndex={0}
       >

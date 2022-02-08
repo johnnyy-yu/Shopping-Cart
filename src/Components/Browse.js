@@ -44,7 +44,7 @@ function Browse(props) {
       <div
         className="browse"
         onClick={() => {
-          document.querySelector(".cart-bar").style.display = "none";
+          document.querySelector(".cart-bar").classList.remove("is-open");
         }}
         role="tab"
         onKeyDown={() => {}}

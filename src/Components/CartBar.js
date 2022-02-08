@@ -8,7 +8,7 @@ function CartBar(props) {
   const { cart, setCart, subTotal } = props;
 
   return (
-    <div className="cart-bar" style={{ display: "none" }}>
+    <div className="cart-bar">
       <div className="cart-bar-header">Shopping Cart</div>
       <div className="cart-items">
         {cart.map((item) => (
